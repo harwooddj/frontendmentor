@@ -1,0 +1,142 @@
+//color variables
+$Red: hsl(0, 78%, 62%);
+$Cyan: hsl(180, 62%, 55%);
+$Orange: hsl(34, 97%, 64%);
+$Blue: hsl(212, 86%, 64%);
+$VeryDarkBlue: hsl(234, 12%, 34%);
+$GrayishBlue: hsl(229, 6%, 66%);
+$VeryLightGray: hsl(0, 0%, 98%);
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: $VeryLightGray;
+    display: block;
+}
+
+
+
+.container {
+    display: block;
+    .header {
+        margin: 20px auto;
+        width: 300px;
+        text-align: center;
+        p {
+            margin-top: 20px;
+        }
+    }
+    .heading,
+    h2,
+    h3 {
+        color: $VeryDarkBlue;
+    }
+    .heading {
+        font-weight: 200;
+    }
+    h2,
+    h3 {
+        font-weight: 600;
+    }
+
+    p {
+        color: $GrayishBlue;
+        font-weight: 400;
+    }
+    .cards{
+        .card {
+            margin: 20px auto;
+            width: 300px;
+            box-shadow: 0 15px 30px 5px $GrayishBlue ;
+            background-color: white;
+            height: 180px;
+            padding: 20px;
+            border-radius: 5px;
+            p {
+                font-size: 0.8rem;
+            }
+            img {
+                margin-top: 30px;
+                margin-left: 80%;
+                width: 40px;
+                height: 40px;
+
+            }
+            &:nth-child(1) {
+                border-top: 5px solid $Cyan;
+            }
+            &:nth-child(2) {
+                border-top: 5px solid $Red;
+            }
+            &:nth-child(3) {
+                border-top: 5px solid $Orange;
+            }
+            &:nth-child(4) {
+                border-top: 5px solid $Blue;
+            }
+        }
+        
+    }
+}
+
+footer {
+    text-align: center;
+    font-size: 0.6rem;
+    font-weight: 200;
+}
+
+@media only screen and (min-width: 957px) {
+    .cards {
+        display: flex;
+        .card {
+            height: 180px;
+            &:nth-child(1) {
+                margin: auto 20px auto auto;
+            }
+            &:nth-child(3) {
+                margin: auto auto auto 20px;
+            }
+        }
+        .center {
+            .card {
+                margin: 20px auto;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 650px) and (max-width: 956px){
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        .center {
+            display: flex;
+            flex-direction: column;
+            grid-column: 2;
+            grid-row: 1 / span 2;
+            justify-self: start;
+        }
+        .card {
+            height: 180px;
+            &:nth-child(1) {
+                grid-column: 1;
+                grid-row: 1;
+                justify-self: end;
+                margin: 0 20px;
+            }
+            &:nth-child(3) {
+                justify-self: end;
+                grid-column: 1;
+                grid-row: 2;
+                margin: 0 20px;
+            }
+        }
+
+    }
+}
